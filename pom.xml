@@ -19,33 +19,6 @@
         <jdk.version>1.8</jdk.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>yy-internal-snapshots</id>
-            <name>yyreposnapshots Public Repositories</name>
-            <url>http://jrepo2.yypm.com/nexus/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>cn.edu100.infra</groupId>
-                <artifactId>edu100-dependencies-bom</artifactId>
-                <version>${edu100.infra.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <plugins>
             <plugin>
@@ -90,14 +63,5 @@
 
         </plugins>
     </build>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>jrepo2-public</id>
-            <url>http://jrepo2.yypm.com/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>jrepo2-public</id>
-            <url>http://jrepo2.yypm.com/nexus/content/repositories/releases/</url>
-        </repository>
-    </distributionManagement>
+
 </project>
