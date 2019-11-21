@@ -12,6 +12,6 @@ import java.util.List;
  */
 public interface NodeHandler {
 
-	void handleNode(Element nodeToHandle, List<SqlNode> content);
+	void handleNode(Element nodeToHandle, List<SqlNode> contents);
 
 }

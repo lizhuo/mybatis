@@ -10,7 +10,7 @@ import java.util.List;
  * @Description: IF 标签处理器
  * @date 2019-11-21 11:13
  */
-public class IfNodeHandler implements NodeHandler {
+public class IfNodeHandlerOuter implements NodeHandler {
 
 	/**
 	 * if 标签

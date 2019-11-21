@@ -5,7 +5,7 @@ import com.tt.mybatis.utils.OgnlUtils;
 
 /**
  * @author lizhuo
- * @Description: TODO
+ * @Description: IF SQL Node
  * @date 2019-11-21 11:57
  */
 public class IfSqlNode implements SqlNode {

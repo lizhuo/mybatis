@@ -2,7 +2,6 @@ package com.tt.mybatis.sqlnode;
 
 import com.tt.mybatis.sqlnode.iface.SqlNode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

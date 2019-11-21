@@ -1,7 +1,8 @@
 package com.tt.mybatis.config;
 
-import com.tt.mybatis.nodehandler.IfNodeHandler;
+import com.tt.mybatis.nodehandler.IfNodeHandlerOuter;
 import com.tt.mybatis.nodehandler.NodeHandler;
+import com.tt.mybatis.sqlnode.IfSqlNode;
 import com.tt.mybatis.sqlnode.MixedSqlNode;
 import com.tt.mybatis.sqlnode.StaticTextSqlNode;
 import com.tt.mybatis.sqlnode.TextSqlNode;
@@ -39,7 +40,7 @@ public class XMLStatementBuilder {
 	}
 
 	private void initNodeHandler() {
-		this.nodeHandlerMap.put("if", new IfNodeHandler());
+		this.nodeHandlerMap.put("if", new IfNodeHandlerOuter());
 		//this.nodeHandlerMap.put("where", new WhereNodeHandler());
 	}
 
@@ -60,7 +61,8 @@ public class XMLStatementBuilder {
 		SqlSource sqlSource = createSqlSource(stateElement);
 
 		// TODO 建议使用构建者模式 优化
-		MappedStatement mappedStatement = new MappedStatement(id, parameterClazz, resultClazz, statementType, sqlSource);
+		MappedStatement mappedStatement = new MappedStatement(namespace + "." + id,
+				parameterClazz, resultClazz, statementType, sqlSource);
 		this.configuration.addMappedStatement(id, mappedStatement);
 	}
 
@@ -73,7 +75,6 @@ public class XMLStatementBuilder {
 		} else {
 			sqlSource = new RawSqlSource(rootSqlNode);
 		}
-
 		return sqlSource;
 	}
 
@@ -100,7 +101,7 @@ public class XMLStatementBuilder {
 				isDynamic = true;
 			}
 		}
-		return null;
+		return new MixedSqlNode(contents);
 	}
 
 	private Class<?> resolveType(String type) {
@@ -110,6 +111,22 @@ public class XMLStatementBuilder {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	class IfNodeHandler implements NodeHandler {
+
+		/**
+		 * if 标签
+		 * @param nodeToHandler
+		 * @param contents
+		 */
+		@Override
+		public void handleNode(Element nodeToHandler, List<SqlNode> contents) {
+			String test = nodeToHandler.attributeValue("test");
+			MixedSqlNode rootSqlNode = parseDynamicTags(nodeToHandler);
+			contents.add(new IfSqlNode(test, rootSqlNode));
+		}
+
 	}
 
 }
