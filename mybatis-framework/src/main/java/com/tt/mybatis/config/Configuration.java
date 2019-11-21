@@ -1,6 +1,8 @@
 package com.tt.mybatis.config;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author lizhuo
@@ -10,6 +12,7 @@ import javax.sql.DataSource;
 public class Configuration {
 
 	private DataSource dataSource;
+	private Map<String, MappedStatement> mappedStatements = new HashMap<String, MappedStatement>();
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -17,6 +20,10 @@ public class Configuration {
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
+	}
+
+	public void addMappedStatement(String statementId, MappedStatement mappedStatement) {
+		this.mappedStatements.put(statementId, mappedStatement);
 	}
 
 }

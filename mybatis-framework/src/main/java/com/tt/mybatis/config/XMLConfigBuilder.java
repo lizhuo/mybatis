@@ -1,5 +1,6 @@
 package com.tt.mybatis.config;
 
+import com.tt.mybatis.io.Resources;
 import com.tt.mybatis.utils.DocumentUtils;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.dom4j.Document;
@@ -42,16 +43,27 @@ public class XMLConfigBuilder {
 		Element environmentsElement = rootElement.element("environments");
 		parseEnvironmentsElement(environmentsElement);
 
-		Element mapperElement = rootElement.element("mappers");
-		parseMapperElement(mapperElement);
+		Element mappersElement = rootElement.element("mappers");
+		parseMapperElement(mappersElement);
 	}
 
-	private void parseMapperElement(Element mapperElement) {
+	private void parseMapperElement(Element mappersElement) {
+		List<Element> elements = mappersElement.elements("mapper");
+		for (Element mapperElement : elements) {
+			parseMapper(mapperElement);
+		}
+	}
+
+	private void parseMapper(Element mapperElement) {
+		String resource = mapperElement.attributeValue("resource");
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(this.configuration);
+		xmlMapperBuilder.parse(inputStream);
 	}
 
 	/**
 	 *
-	 * @param environmentsElement
+	 * @param environmentsElement <environments>
 	 */
 	private void parseEnvironmentsElement(Element environmentsElement) {
 		String defaultId = environmentsElement.attributeValue("default");
@@ -67,6 +79,10 @@ public class XMLConfigBuilder {
 		}
 	}
 
+	/**
+	 *
+	 * @param dbElement <dataSource>
+	 */
 	private void parseDataSource(Element dbElement) {
 		String dbType = dbElement.attributeValue("type");
 		if ("DBCP".equals(dbType)) {
