@@ -1,6 +1,5 @@
 package com.tt.mybatis.config;
 
-import com.tt.mybatis.nodehandler.IfNodeHandlerOuter;
 import com.tt.mybatis.nodehandler.NodeHandler;
 import com.tt.mybatis.sqlnode.IfSqlNode;
 import com.tt.mybatis.sqlnode.MixedSqlNode;
@@ -40,7 +39,7 @@ public class XMLStatementBuilder {
 	}
 
 	private void initNodeHandler() {
-		this.nodeHandlerMap.put("if", new IfNodeHandlerOuter());
+		this.nodeHandlerMap.put("if", new IfNodeHandler());
 		//this.nodeHandlerMap.put("where", new WhereNodeHandler());
 	}
 
@@ -79,9 +78,11 @@ public class XMLStatementBuilder {
 	}
 
 	private MixedSqlNode parseDynamicTags(Element stateElement) {
-		List<Node> nodes = stateElement.elements();
 		List<SqlNode> contents = new ArrayList<SqlNode>();
-		for (Node node : nodes) {
+		// 使用nodeCount会统计文本节点，而使用elements获取到的都是元素子节点
+		int nodeCount = stateElement.nodeCount();
+		for (int i = 0; i < nodeCount; i++) {
+			Node node = stateElement.node(i);
 			if (node instanceof Text) {
 				String sqlText = node.getText().trim();
 				TextSqlNode textSqlNode = new TextSqlNode(sqlText);
