@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @author lizhuo
- * @Description: Default
+ * @Description: Default sql session
  * @date 2019-11-22 11:00
  */
 public class DefaultSqlSession implements SqlSession {

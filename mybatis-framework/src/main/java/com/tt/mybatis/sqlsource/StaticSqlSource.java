@@ -25,6 +25,7 @@ public class StaticSqlSource implements SqlSource {
 
 	@Override
 	public BoundSql getBoundSql(Object paramObject) {
+		// TODO 要 paramObject 何用？？
 		return new BoundSql(sqlText, parameterMappings);
 	}
 

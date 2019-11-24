@@ -62,7 +62,7 @@ public class XMLStatementBuilder {
 		// TODO 建议使用构建者模式 优化
 		MappedStatement mappedStatement = new MappedStatement(namespace + "." + id,
 				parameterClazz, resultClazz, statementType, sqlSource);
-		this.configuration.addMappedStatement(id, mappedStatement);
+		this.configuration.addMappedStatement(namespace + "." + id, mappedStatement);
 	}
 
 	private SqlSource createSqlSource(Element stateElement) {

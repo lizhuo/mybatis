@@ -31,11 +31,12 @@ public abstract class BaseExecutor implements Executor {
 		}
 
 		// 查询数据库
-		results = queryDataBase(mappedStatement, configuration, param);
+		results = queryDataBase(mappedStatement, configuration, param, boundSql);
 		oneLevelCache.put(boundSql.getSql(), results);
 		return (List<T>) results;
 	}
 
-	public abstract List<Object> queryDataBase(MappedStatement mappedStatement, Configuration configuration, Object param);
+	public abstract List<Object> queryDataBase(MappedStatement mappedStatement, Configuration configuration,
+	                    Object param, BoundSql boundSql);
 
 }
