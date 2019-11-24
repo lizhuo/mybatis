@@ -3,6 +3,7 @@ package com.tt.mybatis.sqlsession;
 import com.tt.mybatis.config.Configuration;
 import com.tt.mybatis.config.MappedStatement;
 import com.tt.mybatis.executor.CachingExecutor;
+import com.tt.mybatis.executor.SimpleExecutor;
 import com.tt.mybatis.executor.iface.Executor;
 
 import java.util.List;
@@ -32,8 +33,8 @@ public class DefaultSqlSession implements SqlSession {
 	@Override
 	public <T> List<T> selectList(String statementId, Object param) {
 		MappedStatement mappedStatement = this.configuration.getMappedStatement(statementId);
-		Executor executor = new CachingExecutor();
-		return null;
+		Executor executor = new CachingExecutor(new SimpleExecutor());
+		return executor.query(mappedStatement, configuration, param);
 	}
 
 }

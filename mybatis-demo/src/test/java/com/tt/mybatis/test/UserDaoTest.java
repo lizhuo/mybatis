@@ -50,8 +50,10 @@ public class UserDaoTest {
 		User param = new User();
 		param.setId(1);
 
-		String statementId = "";
+		String statementId = "test.findUserById";
 		User user = sqlSession.selectOne(statementId, param);
+
+		System.out.println(user);
 
 	}
 

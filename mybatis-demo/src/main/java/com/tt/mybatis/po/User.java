@@ -15,6 +15,12 @@ public class User {
 	private String sex;
 	private String address;
 
+	@Override
+	public String toString() {
+		return "id=" + id + ", username:" + username + ", sex:" + sex + ", address:" + address
+				+ ", birthday:" + birthday;
+	}
+
 	public int getId() {
 		return id;
 	}

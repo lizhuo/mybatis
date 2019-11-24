@@ -60,4 +60,11 @@ public class MappedStatement {
 		this.statementType = statementType;
 	}
 
+	public SqlSource getSqlSource() {
+		return sqlSource;
+	}
+
+	public void setSqlSource(SqlSource sqlSource) {
+		this.sqlSource = sqlSource;
+	}
 }

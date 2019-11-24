@@ -7,13 +7,13 @@ import java.util.List;
 
 /**
  * @author lizhuo
- * @Description: TODO
+ * @Description:
  * @date 2019-11-23 14:25
  */
 public class SimpleExecutor extends BaseExecutor {
 
 	@Override
-	public <T> List<T> query(MappedStatement mappedStatement, Configuration configuration, Object param) {
+	public List<Object> queryDataBase(MappedStatement mappedStatement, Configuration configuration, Object param) {
 		return null;
 	}
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author lizhuo
- * @Description: TODO
+ * @Description: SQL 执行器
  * @date 2019-11-22 15:08
  */
 public interface Executor {
