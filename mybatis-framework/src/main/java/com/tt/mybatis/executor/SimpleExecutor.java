@@ -69,7 +69,7 @@ public class SimpleExecutor extends BaseExecutor {
 				String columnName = metaData.getColumnName(i + 1);
 				Field field = resultTypeClass.getDeclaredField(columnName);
 				field.setAccessible(true);
-				field.set(result, resultSet.getObject(i));
+				field.set(result, resultSet.getObject(i + 1));
 			}
 			results.add(result);
 		}
