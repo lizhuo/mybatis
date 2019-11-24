@@ -5,6 +5,7 @@ import com.tt.mybatis.config.MappedStatement;
 import com.tt.mybatis.executor.CachingExecutor;
 import com.tt.mybatis.executor.SimpleExecutor;
 import com.tt.mybatis.executor.iface.Executor;
+import com.tt.mybatis.sqlsession.iface.SqlSession;
 
 import java.util.List;
 

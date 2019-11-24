@@ -1,6 +1,8 @@
 package com.tt.mybatis.sqlsession;
 
 import com.tt.mybatis.config.Configuration;
+import com.tt.mybatis.sqlsession.iface.SqlSession;
+import com.tt.mybatis.sqlsession.iface.SqlSessionFactory;
 
 /**
  * @author lizhuo

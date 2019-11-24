@@ -4,8 +4,8 @@ import com.tt.mybatis.config.Configuration;
 import com.tt.mybatis.config.XMLConfigBuilder;
 import com.tt.mybatis.io.Resources;
 import com.tt.mybatis.po.User;
-import com.tt.mybatis.sqlsession.SqlSession;
-import com.tt.mybatis.sqlsession.SqlSessionFactory;
+import com.tt.mybatis.sqlsession.iface.SqlSession;
+import com.tt.mybatis.sqlsession.iface.SqlSessionFactory;
 import com.tt.mybatis.sqlsession.SqlSessionFactoryBuilder;
 import org.junit.Test;
 

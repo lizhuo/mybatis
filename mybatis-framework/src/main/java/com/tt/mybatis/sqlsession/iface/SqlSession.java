@@ -1,4 +1,4 @@
-package com.tt.mybatis.sqlsession;
+package com.tt.mybatis.sqlsession.iface;
 
 import java.util.List;
 

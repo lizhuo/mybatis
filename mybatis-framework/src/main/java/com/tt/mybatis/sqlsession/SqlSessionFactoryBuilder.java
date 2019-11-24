@@ -2,6 +2,7 @@ package com.tt.mybatis.sqlsession;
 
 import com.tt.mybatis.config.Configuration;
 import com.tt.mybatis.config.XMLConfigBuilder;
+import com.tt.mybatis.sqlsession.iface.SqlSessionFactory;
 
 import java.io.InputStream;
 import java.io.Reader;
