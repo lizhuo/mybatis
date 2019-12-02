@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class DynamicContext {
 
-	private StringBuffer sb;
+	private StringBuffer sb = new StringBuffer();
 	private Map<String, Object> bindings = new HashMap<String, Object>();
 
 	public DynamicContext() {

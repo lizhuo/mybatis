@@ -4,12 +4,13 @@
             parameterType="com.tt.mybatis.po.User"
             resultType="com.tt.mybatis.po.User"
             statementType="prepared">
-        SELECT * FROM user WHERE id = #{id} and sex = #{sex} AND username like '%${username}'
+        SELECT * FROM user WHERE id = #{id}
+        <!--and sex = #{sex} AND username like '%${username}'
         <if test="username != null and username !='' ">
             AND username like '%${username}'
             <if test="username != null and username !=''">
                 AND 1=1
             </if>
-        </if>
+        </if>-->
     </select>
 </mapper>

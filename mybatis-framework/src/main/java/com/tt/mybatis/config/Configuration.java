@@ -26,4 +26,7 @@ public class Configuration {
 		this.mappedStatements.put(statementId, mappedStatement);
 	}
 
+	public MappedStatement getMappedStatement(String statementId) {
+		return mappedStatements.get(statementId);
+	}
 }
