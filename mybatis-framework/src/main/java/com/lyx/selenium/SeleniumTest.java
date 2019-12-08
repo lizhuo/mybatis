@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * @author lizhuo
- * @Description: 封装全局配置文件和映射配置文件中的信息
+ * @Description: Selenium 普通测试类
  * @date 2019-12-01 18:33
  */
 public class SeleniumTest {

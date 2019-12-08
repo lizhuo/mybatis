@@ -14,6 +14,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author lizhuo
+ * @Description: Selenium junit 测试类
+ * @date 2019-12-01 18:33
+ */
 @RunWith(BlockJUnit4ClassRunner.class)
 public class ChromeTest extends TestCase {
 
