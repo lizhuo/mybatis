@@ -14,13 +14,16 @@ public class SeleniumTest {
 
 	public static void main(String args[]) throws InterruptedException {
 		System.out.println("haha");
+		System.out.println(System.getProperty("user.dir"));
 		SeleniumTest seleniumTest = new SeleniumTest();
 		seleniumTest.queryBaidu();
 	}
 
 	public void queryBaidu() throws InterruptedException {
+
+
 		// 设置环境变量：chrome驱动位置
-		System.setProperty("webdriver.chrome.driver", "E:\\java\\laboratory\\selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver(); // 创建驱动
 		driver.get("http://www.baidu.com/");

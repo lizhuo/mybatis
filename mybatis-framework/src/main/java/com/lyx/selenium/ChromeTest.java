@@ -23,7 +23,7 @@ public class ChromeTest extends TestCase {
 	@BeforeClass
 	public static void createAndStartService() throws IOException {
 		service = new ChromeDriverService.Builder()
-				.usingDriverExecutable(new File("E:\\java\\laboratory\\selenium\\chromedriver.exe"))
+				.usingDriverExecutable(new File("../chromedriver.exe"))
 				.usingAnyFreePort()
 				.build();
 		service.start();
@@ -48,7 +48,8 @@ public class ChromeTest extends TestCase {
 	@Test
 	public void testGoogleSearch() throws InterruptedException {
 		// 设置环境变量：chrome驱动位置
-		System.setProperty("webdriver.chrome.driver", "E:\\java\\chromedriver.exe");
+		System.out.println(System.getProperty("user.dir"));
+		//System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
 
 		driver.get("http://www.baidu.com/");
 
