@@ -20,8 +20,6 @@ public class SeleniumTest {
 	}
 
 	public void queryBaidu() throws InterruptedException {
-
-
 		// 设置环境变量：chrome驱动位置
 		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
 
